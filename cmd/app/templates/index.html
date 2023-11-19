@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Web editor</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.0/ace.min.js"
+        integrity="sha512-nqoLH5VgQWm0Js4wYZ5bzxWLPRIkREwx74zw6M52Z6Fd1F8WMN60cTU0SOMF9Cd4e4cicvNsHg4ShwyJAt9gYg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.0/ext-beautify.min.js"
+        integrity="sha512-uXfi0GwpQZcHIhGOMMHeNYtBSjt7qDXjXHmjShWSp+RWMSmjdy69N7M/pufinvQLv6rSYlpbSXqSnLRzWE952w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.0/mode-css.min.js"
+        integrity="sha512-q2Qu7dOhudjAQ8wvsLOsZ1NyUhOPAeGL/jzO1f45NMFGSv9F6sgDyzWa00LCVBWg/p84nGM/NHOX4bO1ctbkKg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.1/mode-html.min.js"
+        integrity="sha512-6IhPctYetE0kOyB79HJmgrXdzZ5NUr5j8/3Q9m8xAgwHgt8aJ6lGP11c/iCjPnVc/4sTOmNdSuejYAFLB2q9xw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.1/mode-javascript.min.js"
+        integrity="sha512-1OTGICMOnGWxRYfDZRUdv7qut0O8+9s7JPi6JNxlz1pdpHgDwPo1L0dzYKwftuIb0ossdBzWtkAlnyyYpIEp2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.0/theme-github.min.js"
+        integrity="sha512-6PQOyKN8ulKmC/NQlWnhk2Upjza1Lj9pbYD/6+gNuNG+U28jW/x9iJQJuiQkfQAFggY1sToW9va3vY4xfpsJaA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.31.0/theme-github_dark.min.js"
+        integrity="sha512-9KPSgJ+mukvk+UY25jG7bM1hOR43Sw9jmJxc5q5aa7RAMoQeyY12PNfwwUAPhe9AtOpUA1jKsDRgxeDCXe/uMg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Web editor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-sm btn-success m-1" id="save">Save</button>
+                            <button type="button" class="btn btn-sm btn-primary m-1" id="ready" disabled="disabled"
+                                style="display: none;">Ready</button>
+                            <button type="button" class="btn btn-sm btn-warning m-1" id="unready" disabled="disabled"
+                                style="display: none;">Unready</button>
+                        </li>
+                    </ul>
+                    <span class="navbar-text">
+                        <button type="button" class="btn btn-sm btn-danger" id="disconnect">Disconnect</button>
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        <hr class="m-0" />
+        <div id="clients" class="p-1"></div>
+        <hr class="m-0" />
+
+        <div class="card-body p-2 mt-2">
+            <div id="editor" style="min-height: 800px;"></div>
+        </div>
+
+        <div id="alerts" style="position: absolute; min-height: 200px; top: 3%; right: 3%; opacity: 0.9;"></div>
+    </div>
+    <script src="/static/js/editor.js"></script>
+</body>
+
+</html>

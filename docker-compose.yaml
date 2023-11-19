@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  editor:
+    image: editor:local
+    environment:
+      # Standard
+      ENV: "local"
+      VERSION: "local"
+      APP: "web-editor"
+      # IO
+      FILE_IO: "file"
+      FILE_PATH: "./assets/custom.css"
+      VERSIONS_IO: "file"
+      VERSIONS_PATH: "./assets/versions/"
+      # TTL
+      CONN_TTL: "1h" # format: 1m | 1h | 1d
+    volumes:
+      - "./examples/assets:/assets"
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    networks:
+      - web-editor
+networks:
+  web-editor:
+    driver: bridge
